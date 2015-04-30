@@ -1,11 +1,14 @@
-FROM java:openjdk-8-jdk
+FROM java:openjdk-8u45-jdk
 MAINTAINER ototadana@gmail.com
+
+ENV FIREFOX_VERSION 37.0.2~linuxmint1+betsy
+ENV CHROME_VERSION 42.0.2311.135-1
 
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
     && echo "deb http://packages.linuxmint.com debian import " > /etc/apt/sources.list.d/firefox.list \
     && apt-get update \
-    && apt-get install -y --force-yes firefox google-chrome-stable make sudo vim xvfb \
+    && apt-get install -y --force-yes firefox=${FIREFOX_VERSION} google-chrome-stable=${CHROME_VERSION} make sudo vim xvfb \
     && rm -rf /var/lib/apt/lists/*
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
