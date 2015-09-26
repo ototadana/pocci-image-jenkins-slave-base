@@ -1,8 +1,8 @@
-FROM java:openjdk-8u45-jdk
+FROM java:openjdk-8u66-jdk
 MAINTAINER ototadana@gmail.com
 
-ENV FIREFOX_VERSION 39.0~linuxmint1+betsy
-ENV CHROME_VERSION 44.0.2403.125-1
+ENV FIREFOX_VERSION 41.0~linuxmint1+betsy
+ENV CHROME_VERSION 45.0.2454.101-1
 
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
