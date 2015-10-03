@@ -3,5 +3,11 @@ set -e
 
 source /config/init
 
+if [ -d /tmp/.X11-unix ]; then
+    rm -fr /tmp/.X11-unix
+fi
+if [ -f /tmp/.X99-lock ]; then
+    rm -fr /tmp/.X99-lock
+fi
 start-stop-daemon --start --quiet --background --exec /usr/bin/Xvfb -- ${DISPLAY} -screen 0 ${SCREEN_WxHxD} -ac +extension RANDR
 exec "$@"
