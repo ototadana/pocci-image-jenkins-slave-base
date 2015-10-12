@@ -1,7 +1,7 @@
 FROM java:openjdk-8u66-jdk
 MAINTAINER ototadana@gmail.com
 
-ENV FIREFOX_VERSION 41.0~linuxmint1+betsy
+ENV FIREFOX_VERSION 41.0.1~linuxmint1+betsy
 ENV CHROME_VERSION 45.0.2454.101-1
 
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
@@ -31,5 +31,3 @@ CMD ["/config/startJenkinsSlave.sh"]
 
 ENV DISPLAY :99
 ENV SCREEN_WxHxD 1024x768x24
-ENV JENKINS_URL http://jenkins:8080/jenkins
-ENV NODE_NAME node1
