@@ -24,10 +24,11 @@ RUN chown -R jenkins:jenkins /config
 RUN chmod +x /config/*
 
 USER jenkins
+RUN ln -s ~ /tmp/user_home
 WORKDIR /tmp
 
 ENTRYPOINT ["/config/entrypoint"]
-CMD ["/config/startJenkinsSlave.sh"]
+CMD ["/config/start-jenkins-slave.sh"]
 
 ENV DISPLAY :99
 ENV SCREEN_WxHxD 1024x768x24
