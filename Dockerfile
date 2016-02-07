@@ -1,9 +1,9 @@
-FROM java:openjdk-8u66-jdk
+FROM java:openjdk-8u72-jdk
 MAINTAINER ototadana@gmail.com
 
 ENV FIREFOX_VERSION 43.0~linuxmint1+betsy
-ENV CHROME_VERSION 47.0.2526.106-1
-ENV GITLAB_CI_RUNNER_VERSION 0.7.2
+ENV CHROME_VERSION 48.0.2564.103-1
+ENV GITLAB_CI_RUNNER_VERSION 1.0.2
 
 ENV WORKSPACE /var/workspace
 
@@ -15,7 +15,7 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
     && echo "deb http://packages.linuxmint.com debian import " > /etc/apt/sources.list.d/firefox.list \
     && curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | bash \
     && apt-get install -y --force-yes firefox=${FIREFOX_VERSION} gitlab-ci-multi-runner=${GITLAB_CI_RUNNER_VERSION} \
-       google-chrome-stable=${CHROME_VERSION} make sudo vim xvfb \
+       google-chrome-stable=${CHROME_VERSION} jq make sudo vim xvfb \
     && rm -rf /var/lib/apt/lists/*
 
 RUN echo "owner ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers
