@@ -3,7 +3,6 @@ MAINTAINER ototadana@gmail.com
 
 ENV FIREFOX_VERSION 43.0~linuxmint1+betsy
 ENV CHROME_VERSION 51.0.2704.106-1
-ENV GITLAB_CI_RUNNER_VERSION 1.3.3
 
 ENV WORKSPACE /var/workspace
 
@@ -13,8 +12,8 @@ RUN mkdir -p /app && chown owner:owner /app
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
     && echo "deb http://packages.linuxmint.com debian import " > /etc/apt/sources.list.d/firefox.list \
-    && curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | bash \
-    && apt-get install -y --force-yes firefox=${FIREFOX_VERSION} gitlab-ci-multi-runner=${GITLAB_CI_RUNNER_VERSION} \
+    && apt-get update \
+    && apt-get install -y --force-yes firefox=${FIREFOX_VERSION} \
        google-chrome-stable=${CHROME_VERSION} jq make sudo vim xvfb \
     && rm -rf /var/lib/apt/lists/*
 
