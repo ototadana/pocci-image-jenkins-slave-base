@@ -1,4 +1,4 @@
-FROM java:openjdk-8u91-jdk
+FROM java:openjdk-8u102-jdk
 MAINTAINER ototadana@gmail.com
 
 ENV FIREFOX_VERSION 43.0~linuxmint1+betsy
