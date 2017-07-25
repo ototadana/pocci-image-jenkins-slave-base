@@ -2,7 +2,7 @@ FROM openjdk:8u131-jdk
 MAINTAINER ototadana@gmail.com
 
 ENV FIREFOX_VERSION 43.0~linuxmint1+betsy
-ENV CHROME_VERSION 59.0.3071.115-1
+ENV CHROME_VERSION 60.0.3112.78-1
 
 ENV WORKSPACE /var/workspace
 
